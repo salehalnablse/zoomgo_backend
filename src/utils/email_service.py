@@ -160,24 +160,22 @@ class EmailService:
             print(f"📧 CONTENT: {html_content[:200]}...")
             return True
             
-            # Uncomment below for actual email sending:
-            """
-            msg = MIMEMultipart('alternative')
-            msg['Subject'] = subject
-            msg['From'] = self.email_user
-            msg['To'] = to_email
-            
-            html_part = MIMEText(html_content, 'html')
-            msg.attach(html_part)
-            
-            server = smtplib.SMTP(self.smtp_server, self.smtp_port)
-            server.starttls()
-            server.login(self.email_user, self.email_password)
-            server.send_message(msg)
-            server.quit()
-            
-            return True
-            """
+           msg = MIMEMultipart('alternative')
+msg['Subject'] = subject
+msg['From'] = self.email_user
+msg['To'] = to_email
+
+html_part = MIMEText(html_content, 'html')
+msg.attach(html_part)
+
+server = smtplib.SMTP(self.smtp_server, self.smtp_port)
+server.starttls()
+server.login(self.email_user, self.email_password)
+server.send_message(msg)
+server.quit()
+
+return True
+
             
         except Exception as e:
             print(f"Error in _send_email: {str(e)}")
