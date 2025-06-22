@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from ..models.booking import db, Booking
-from ..utils.email_service import EmailService
+from src.models.booking import db, Booking
+from src.utils.email_service import EmailService
 from datetime import datetime
 import random
 import string
