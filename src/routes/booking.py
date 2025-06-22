@@ -50,7 +50,7 @@ def create_booking():
         required_fields = [
             'service', 'pickup_location', 'dropoff_location',
             'pickup_date', 'pickup_time', 'passengers',
-            'first_name', 'last_name', 'email', 'phone'
+            'first_name', 'email', 'phone'
         ]
 
         for field in required_fields:
@@ -85,7 +85,6 @@ def create_booking():
             pickup_time=pickup_time,
             passengers=int(data['passengers'].replace('+', '')) if '+' in str(data['passengers']) else int(data['passengers']),
             first_name=data['first_name'],
-            last_name=data['last_name'],
             email=data['email'],
             phone=data['phone'],
             special_requests=data.get('special_requests', ''),
